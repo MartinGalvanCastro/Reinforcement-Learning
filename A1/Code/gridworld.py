@@ -588,15 +588,12 @@ if __name__ == '__main__':
                 for i in range(opts.iters):
                     tempAgent = policyIterationAgent.PolicyIterationAgent(
                         mdp, opts.discount, i)
-                    display.displayValues(
-                        tempAgent, message="VALUES AFTER "+str(i)+" ITERATIONS")
+                    display.displayPolicies(
+                        tempAgent, message="POLICIES AFTER "+str(i)+" ITERATIONS")
                     display.pause()
 
-            display.displayValues(
-                a, message="VALUES AFTER "+str(opts.iters)+" ITERATIONS")
-            display.pause()
-            display.displayQValues(
-                a, message="Q-VALUES AFTER "+str(opts.iters)+" ITERATIONS")
+            display.displayPolicies(
+                a, message="POLICIES AFTER "+str(opts.iters)+" ITERATIONS")
             display.pause()
 
     except KeyboardInterrupt:

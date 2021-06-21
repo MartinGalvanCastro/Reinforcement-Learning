@@ -55,6 +55,8 @@ class PolicyIterationAgent(ValueEstimationAgent):
                 policy = random.choice(
                     actions)  # Choose one as starting policy
                 self.policies[state] = policy
+            else:
+                self.policies[state] = "NaN"
 
         # Do Policy Iteration for each state
         for _ in range(self.iterations):
