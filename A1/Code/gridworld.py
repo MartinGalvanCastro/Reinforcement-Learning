@@ -606,12 +606,14 @@ if __name__ == '__main__':
         if opts.manual and opts.agent == None:
             def displayCallback(state): return display.displayNullValues(state)
         else:
-            if opts.agent in ('random', 'value', 'asynchvalue', 'priosweepvalue', 'policy'):
+            if opts.agent in ('random', 'value', 'asynchvalue', 'priosweepvalue'):
                 def displayCallback(state): return display.displayValues(
                     a, state, "CURRENT VALUES")
             if opts.agent == 'q':
                 def displayCallback(state): return display.displayQValues(
                     a, state, "CURRENT Q-VALUES")
+            if opts.agent in ('policy'):
+                def displayCallback(state): return display.displayPolicies(a,state,"CURRENT POLICIES")
 
     def messageCallback(x): return printString(x)
     if opts.quiet:
